@@ -18,27 +18,27 @@ import { Person } from "./utils/Person";
  *    CreateClientInput:
  *      type: object
  *      required:
- *        - first_name
- *        - last_name
+ *        - firstName
+ *        - lastName
  *        - email
- *        - card_number
+ *        - cardNumber
  *        - balance
  *      properties:
+ *        firstName:
+ *          type: string
+ *          default: Jane
+ *        lastName:
+ *          type: string
+ *          default: Doe
  *        email:
  *          type: string
  *          default: jane.doe@example.com
- *        first_name:
- *          type: string
- *          default: Jane
- *        last_name:
- *          type: string
- *          default: Doe
- *        card_number:
+ *        cardNumber:
  *          type: string
  *          default: 1234567890
  *        balance:
  *          type: string
- *          default: 1234567890
+ *          default: 200
  *    CreateClientResponse:
  *      type: object
  *      properties:

@@ -11,6 +11,7 @@ import { deleteClientRouter } from "./routes/delete_client";
 import { fetchClientsRouter } from "./routes/fetch_clients";
 import swaggerDocs from "./swagger";
 
+const bodyParser = require("body-parser");
 const app = express();
 
 const main = async () => {
@@ -26,7 +27,8 @@ const main = async () => {
       synchronize: true,
     });
     console.log("Connected to Postgres");
-
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.json());
     app.use(createClientRouter);
     app.use(createBankerRouter);
     app.use(connectBankerToClientRouter);

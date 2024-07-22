@@ -7,15 +7,15 @@ const router = express.Router();
  * @openapi
  * '/api/client':
  *  post:
- *   tags:
- *   - Client
- *   summary: Create client
- *   requestBody:
- *     required: true
- *     contents:
- *      application/json:
- *       schema:
- *            $ref: '#/components/schemas/CreateClientInput'
+ *     tags:
+ *     - Client
+ *     summary: add a client
+ *     requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *           schema:
+ *              $ref: '#/components/schemas/CreateClientInput'
  *     responses:
  *      200:
  *        description: Success
