@@ -19,10 +19,6 @@ const router = express.Router();
  *     responses:
  *      200:
  *        description: Success
- *        content:
- *          application/json:
- *            schema:
- *              $ref: '#/components/schemas/CreateClientResponse'
  *      409:
  *        description: Conflict
  *      400:
