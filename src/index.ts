@@ -9,6 +9,7 @@ import { connectBankerToClientRouter } from "./routes/connect_banker_to_client";
 import { createTransactionRouter } from "./routes/create_transaction";
 import { deleteClientRouter } from "./routes/delete_client";
 import { fetchClientsRouter } from "./routes/fetch_clients";
+import swaggerDocs from "./swagger";
 
 const app = express();
 
@@ -26,8 +27,6 @@ const main = async () => {
     });
     console.log("Connected to Postgres");
 
-    app.use(express.json());
-
     app.use(createClientRouter);
     app.use(createBankerRouter);
     app.use(connectBankerToClientRouter);
@@ -37,6 +36,7 @@ const main = async () => {
 
     app.listen(8080, () => {
       console.log("Now running on port 8080");
+      swaggerDocs(app, 8080);
     });
   } catch (error) {
     console.error(error);
