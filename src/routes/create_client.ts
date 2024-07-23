@@ -1,5 +1,7 @@
 import express from "express";
 import { Client } from "../entities/Client";
+import { ClientSchema } from "../schema/clientSchema";
+import { validateResource } from "../middleware/validateResource";
 
 const router = express.Router();
 
@@ -24,7 +26,7 @@ const router = express.Router();
  *      400:
  *        description: Bad request
  */
-router.post("/api/client", async (req, res) => {
+router.post("/api/client", validateResource(ClientSchema), async (req, res) => {
   const { firstName, lastName, email, cardNumber, balance } = req.body;
 
   const client = Client.create({
