@@ -38,7 +38,7 @@ router.post("/api/client/:clientId/transaction", async (req, res) => {
   const client = await Client.findOne(parseInt(clientId));
 
   if (!client) {
-    return res.json({
+    return res.status(409).json({
       msg: "client not found",
     });
   }

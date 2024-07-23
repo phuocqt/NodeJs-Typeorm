@@ -9,35 +9,6 @@ import {
 import { Client } from "./Client";
 import { Person } from "./utils/Person";
 
-/**
- * @openapi
- * components:
- *  schemas:
- *    CreateBankerInput:
- *      type: object
- *      required:
- *        - firstName
- *        - lastName
- *        - email
- *        - cardNumber
- *        - employeeNumber
- *      properties:
- *        firstName:
- *          type: string
- *          default: Jane
- *        lastName:
- *          type: string
- *          default: Doe
- *        email:
- *          type: string
- *          default: jane.doe@example.com
- *        cardNumber:
- *          type: string
- *          default: 1234567890
- *        employeeNumber:
- *          type: string
- *          default: 1234567890
- */
 @Entity("banker")
 export class Banker extends Person {
   @Column({

@@ -37,6 +37,28 @@ router.post("/api/client", validateResource(ClientSchema), async (req, res) => {
     balance,
   });
 
+  const isExistingEmail = await Client.findOne({
+    where: {
+      email,
+    },
+  });
+  const isExistingCardNumber = await Client.findOne({
+    where: {
+      card_number: cardNumber,
+    },
+  });
+
+  if (isExistingEmail)
+    return res.status(409).json({
+      error: "Conflict",
+      message: "A client with this email already exists",
+    });
+  if (isExistingCardNumber)
+    return res.status(409).json({
+      error: "Conflict",
+      message: "A client with this card number already exists",
+    });
+
   await client.save();
 
   return res.json(client);

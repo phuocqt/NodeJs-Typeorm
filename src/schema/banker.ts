@@ -4,14 +4,14 @@ import { z } from "zod";
  * @openapi
  * components:
  *  schemas:
- *    CreateClientInput:
+ *    CreateBankerInput:
  *      type: object
  *      required:
  *        - firstName
  *        - lastName
  *        - email
  *        - cardNumber
- *        - balance
+ *        - employeeNumber
  *      properties:
  *        firstName:
  *          type: string
@@ -25,11 +25,11 @@ import { z } from "zod";
  *        cardNumber:
  *          type: string
  *          default: 1234567890
- *        balance:
+ *        employeeNumber:
  *          type: string
- *          default: 200
+ *          default: 1234567890
  */
-export const ClientSchema = z.object({
+export const BankerSchema = z.object({
   firstName: z.string({
     required_error: "firstName is required",
   }),
@@ -42,5 +42,5 @@ export const ClientSchema = z.object({
     })
     .email(),
   cardNumber: z.string().length(10),
-  balance: z.number(),
+  employeeNumber: z.string().length(10),
 });
