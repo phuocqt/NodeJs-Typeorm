@@ -18,11 +18,11 @@ const main = async () => {
   try {
     await createConnection({
       type: "postgres",
-      host: "localhost",
-      port: 5432,
-      username: "postgres",
-      password: "123456",
-      database: "typeorm",
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT || "5432"),
+      username: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
       entities: [Client, Banker, Transaction],
       synchronize: true,
     });
@@ -36,9 +36,9 @@ const main = async () => {
     app.use(deleteClientRouter);
     app.use(fetchClientsRouter);
 
-    app.listen(8080, () => {
-      console.log("Now running on port 8080");
-      swaggerDocs(app, 8080);
+    app.listen(3000, () => {
+      console.log("Now running on port 3000");
+      swaggerDocs(app, 3000);
     });
   } catch (error) {
     console.error(error);
