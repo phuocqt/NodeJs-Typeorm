@@ -26,7 +26,7 @@ import { z } from "zod";
  *          type: string
  *          default: 1234567890
  *        balance:
- *          type: string
+ *          type: number
  *          default: 200
  */
 export const ClientSchema = z.object({
